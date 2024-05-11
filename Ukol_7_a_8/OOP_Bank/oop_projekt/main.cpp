@@ -24,7 +24,7 @@ Person people_list[] = {
 };
 
 // 07 POLYMORFISMUS 
-#if 0
+#if 1
 int main() {
     Client* o = new Client(0, "Smith");
     CreditAccount* ca = new CreditAccount(1, o, 1000);
@@ -46,7 +46,7 @@ int main() {
 #endif
 
 
-// 08 ABSTRAKTNÍ TØÍDY
+// 08 ABSTRAKTNÃ TÃ˜ÃDY
 #if 0
 int main() {
     Client* o = new Client(0, "Smith");
@@ -67,23 +67,23 @@ int main() {
     const int N = ARRLEN(people_list);
     Bank b1{ 1000, 1000 };
 
-    // vytvoøení klientù v bance - Client
+    // vytvoÃ¸enÃ­ klientÃ¹ v bance - Client
     for (Person p : people_list)
         b1.create_client(p.m_id, p.m_name);
 
-    // vytvoøení úètù nìkterıch klientù - Account
+    // vytvoÃ¸enÃ­ ÃºÃ¨tÃ¹ nÃ¬kterÃ½ch klientÃ¹ - Account
     for (int i = 1; i <= N / 2; ++i)
         b1.create_account(acc_id_base * i, b1.get_client(cli_id_base * i));
 
-    // vytvoøení úètù s partnerem - PartnerAccount
+    // vytvoÃ¸enÃ­ ÃºÃ¨tÃ¹ s partnerem - PartnerAccount
     for (int i = N / 2; i < 2 * N / 2; ++i)
         b1.create_account(acc_id_base * i, b1.get_client(cli_id_base * i), b1.get_client(cli_id_base * (i + 1)), 0.038);
 
-    // vytvoøení pár CreditAccount 
+    // vytvoÃ¸enÃ­ pÃ¡r CreditAccount 
     for (int i = N / 2; i < 2 * N / 2; ++i)
         b1.create_credit_account(1, b1.get_client(cli_id_base * i), 1000);
 
-    b1.print(); // vıpis banky 
+    b1.print(); // vÃ½pis banky 
 
     return 0;
 }
